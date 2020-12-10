@@ -14,7 +14,7 @@ public class Converter {
     public static void main(String[] args) {
         int in = 120;
         int expected = 2;
-        int out = Converter.rublesToDollar(120);
+        int out = Converter.rublesToDollar(in);
         boolean passed = expected == out;
        /* int euro = Converter.rublesToEuro(140);
         int dollar = Converter.rublesToDollar(120);
