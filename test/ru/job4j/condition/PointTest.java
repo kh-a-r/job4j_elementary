@@ -1,9 +1,9 @@
 package ru.job4j.condition;
 
-import org.junit.Assert;
+
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class PointTest {
 
@@ -15,7 +15,7 @@ public class PointTest {
         int d = 5;
         double expected = 4.47;
         double out = Point.distance(a, b, c, d);
-        Assert.assertEquals(expected, out, 0.1);
+        assertEquals(expected, out, 0.1);
     }
 
     @Test
@@ -26,7 +26,7 @@ public class PointTest {
         int d = 5;
         double expected = 1.41;
         double out = Point.distance(a, b, c, d);
-        Assert.assertEquals(expected, out, 0.1);
+        assertEquals(expected, out, 0.1);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class PointTest {
         int d = 55;
         double expected = 49.19;
         double out = Point.distance(a, b, c, d);
-        Assert.assertEquals(expected, out, 0.1);
+        assertEquals(expected, out, 0.1);
     }
 
     @Test
@@ -48,6 +48,6 @@ public class PointTest {
         int d = -1;
         double expected = 1.41;
         double out = Point.distance(a, b, c, d);
-        Assert.assertEquals(expected, out, 0.1);
+        assertEquals(expected, out, 0.1);
     }
 }
