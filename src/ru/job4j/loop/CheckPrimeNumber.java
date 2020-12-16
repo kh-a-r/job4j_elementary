@@ -7,14 +7,15 @@ public class CheckPrimeNumber {
             if (n % i == 0) {
                 prime = false;
                 break;
-            } else {
-                prime = true;
+                //  } else { // избыточно
+                //      prime = true;
+                //  }
             }
         }
         return prime;
     }
 
     public static void main(String[] args) {
-        System.out.println(CheckPrimeNumber.check(4));
+        System.out.println(CheckPrimeNumber.check(19));
     }
 }
