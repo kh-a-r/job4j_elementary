@@ -7,9 +7,6 @@ public class CheckPrimeNumber {
             if (n % i == 0) {
                 prime = false;
                 break;
-                //  } else { // избыточно
-                //      prime = true;
-                //  }
             }
         }
         return prime;

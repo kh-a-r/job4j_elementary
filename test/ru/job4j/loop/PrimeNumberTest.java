@@ -18,6 +18,7 @@ public class PrimeNumberTest {
         int rsl = PrimeNumber.count(11);
         assertThat(rsl, is(5));
     }
+
     @Test
     public void when2() {
         int rsl = PrimeNumber.count(2);
