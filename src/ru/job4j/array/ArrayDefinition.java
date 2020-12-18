@@ -18,6 +18,5 @@ public class ArrayDefinition {
         System.out.println(names[2]);
         System.out.println(names[3]);
 
-
     }
 }
