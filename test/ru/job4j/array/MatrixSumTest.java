@@ -28,10 +28,9 @@ public class MatrixSumTest {
     public void whenThree() {
         int[][] array = {
                 {10, 2, 3},
-                {1, 2, 3},
-                {0, 0, 1}
+                {1, 2, 3}
         };
-        assertThat(MatrixSum.sum(array), is(22));
+        assertThat(MatrixSum.sum(array), is(21));
     }
 
 }

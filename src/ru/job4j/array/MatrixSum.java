@@ -3,9 +3,9 @@ package ru.job4j.array;
 public class MatrixSum {
     public static int sum(int[][] array) {
         int summa = 0;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length; j++) {
-                summa = summa + array[i][j];
+        for (int row = 0; row < array.length; row++) {
+            for (int cell = 0; cell < array[row].length; cell++) {
+                summa = summa + array[row][cell];
             }
         }
         return summa;
@@ -14,8 +14,7 @@ public class MatrixSum {
     public static void main(String[] args) {
         int[][] array = {
                 {4, 2, 3},
-                {7, 1, 5},
-                {3, 5, 6}
+                {7, 1, 0}
         };
         System.out.println(MatrixSum.sum(array));
     }
