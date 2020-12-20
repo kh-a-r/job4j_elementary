@@ -22,4 +22,20 @@ public class FindLoopTest {
         int expect = -1;
         assertThat(rsl, is(expect));
     }
+
+    @Test
+    public void whenFind4In2To5() {
+        int[] input = {0, 2, 4, 5};
+        int rsl = FindLoop.indexOfIn(input, 4, 1, 3);
+        int expect = 2;
+        assertThat(rsl, is(expect));
+    }
+
+    @Test
+    public void whenNotFind4In0To2() {
+        int[] input = {0, 2, 4, 5};
+        int rsl = FindLoop.indexOfIn(input, 4, 0, 1);
+        int expect = -1;
+        assertThat(rsl, is(expect));
+    }
 }
