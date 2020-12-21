@@ -23,3 +23,17 @@ public class Matrix {
     }
 
 }
+/* public static void main(String[] args) {
+    int size = 9;
+    int[][] rsl = Matrix.multiple(size);
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (rsl[i][j] >= 10) {
+                System.out.print(rsl[i][j] + " ");
+            } else {
+                System.out.print(rsl[i][j] + "  ");
+            }
+        }
+        System.out.println();
+    }
+}*/

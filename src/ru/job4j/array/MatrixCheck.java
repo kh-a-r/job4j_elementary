@@ -38,10 +38,12 @@ public class MatrixCheck {
         for (int i = 0; i < 5; i++) {
             if (diagonal[i] == 'X') {
                 index = i;
+                if (monoHorizontal(board, index) || monoVertical(board, index)) {
+                    result = true;
+                break;
             }
         }
-        if (monoHorizontal(board, index) || monoVertical(board, index)) {
-            result = true;
+
         }
         return result;
     }
@@ -54,7 +56,7 @@ public class MatrixCheck {
                 {' ', ' ', 'X', ' ', ' '},
                 {' ', ' ', 'X', ' ', ' '},
         };
-       boolean resultHorizontal = MatrixCheck.monoHorizontal(input, 1);
+      /* boolean resultHorizontal = MatrixCheck.monoHorizontal(input, 1);
         System.out.println(resultHorizontal);
 
         boolean resultVertical = MatrixCheck.monoVertical(input, 0);
@@ -64,7 +66,7 @@ public class MatrixCheck {
         System.out.print("Одномерный массив из элементов диагонали двумерного массива:");
         for (int i = 0; i < input.length; i++) {
             System.out.print(rslDiagonal[i] + " ");
-        }
+        }*/
 
         System.out.println(MatrixCheck.isWin(input));
     }
