@@ -23,16 +23,30 @@ public class MatrixCheck {
         return result;
     }
 
+    public static char[] extractDiagonal(char[][] board) {
+        char[] result = new char[board.length];
+        for (int row = 0; row < board.length; row++) {
+            result[row] = board[row][row];
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         char[][] input = {
                 {'X', ' ', ' '},
                 {'X', 'X', 'X'},
-                {'X', ' ', ' '},
+                {'X', ' ', 'a'},
         };
         boolean resultHorizontal = MatrixCheck.monoHorizontal(input, 1);
         System.out.println(resultHorizontal);
 
         boolean resultVertical = MatrixCheck.monoVertical(input, 0);
         System.out.println(resultVertical);
+
+        char[] rslDiagonal = MatrixCheck.extractDiagonal(input);
+        System.out.print("Одномерный массив из элементов диагонали двумерного массива:");
+        for (int i = 0; i < input.length; i++) {
+            System.out.print(rslDiagonal[i] + " ");
+        }
     }
 }
