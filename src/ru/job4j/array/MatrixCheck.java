@@ -12,13 +12,27 @@ public class MatrixCheck {
         return result;
     }
 
+    public static boolean monoVertical(char[][] board, int cell) {
+        boolean result = true;
+        for (int row = 0; row < board.length; row++) {
+            if (board[row][cell] != 'X') {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         char[][] input = {
-                {' ', ' ', ' '},
+                {'X', ' ', ' '},
                 {'X', 'X', 'X'},
-                {' ', ' ', ' '},
+                {'X', ' ', ' '},
         };
-        boolean result = MatrixCheck.monoHorizontal(input, 1);
-        System.out.println(result);
+        boolean resultHorizontal = MatrixCheck.monoHorizontal(input, 1);
+        System.out.println(resultHorizontal);
+
+        boolean resultVertical = MatrixCheck.monoVertical(input, 0);
+        System.out.println(resultVertical);
     }
 }
