@@ -35,10 +35,9 @@ public class MatrixCheck {
         boolean result = false;
         int index = 0;
         char[] diagonal = MatrixCheck.extractDiagonal(board);
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < board.length; i++) {
             if (diagonal[i] == 'X') {
-                index = i;
-                if (monoHorizontal(board, index) || monoVertical(board, index)) {
+                if (monoHorizontal(board, i) || monoVertical(board, i)) {
                     result = true;
                 break;
             }
@@ -54,7 +53,7 @@ public class MatrixCheck {
                 {' ', ' ', 'X', ' ', ' '},
                 {'X', 'X', 'X', 'X', 'X'},
                 {' ', ' ', 'X', ' ', ' '},
-                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', 'X'},
         };
       /* boolean resultHorizontal = MatrixCheck.monoHorizontal(input, 1);
         System.out.println(resultHorizontal);
