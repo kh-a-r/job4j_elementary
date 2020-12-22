@@ -12,7 +12,8 @@ public class Min {
     }
 
     public static void main(String[] args) {
-        int[] array = {10, 0, 1, 11, 10};
+       // int[] array = {10, 0, 1, 11, 10};
+       int[] array = {3, 7, 9, 10, 11};
         System.out.println(Min.findMin(array));
     }
 }
