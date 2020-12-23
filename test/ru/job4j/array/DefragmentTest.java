@@ -9,9 +9,9 @@ public class DefragmentTest {
 
     @Test
     public void singleFirstNull() {
-        String[] input = {null, "I", null};
+        String[] input = {null, "I"};
         String[] compressed = Defragment.compress(input);
-        String[] expected = {"I", null, null};
+        String[] expected = {"I", null};
         assertThat(compressed, is(expected));
     }
 
