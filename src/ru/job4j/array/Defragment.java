@@ -1,4 +1,4 @@
-/*package ru.job4j.array;
+package ru.job4j.array;
 
 public class Defragment {
     public static String[] swap(String[] array, int from, int to) {
@@ -13,13 +13,10 @@ public class Defragment {
     public static String[] compress(String[] array) {
         for (int index = 0; index < array.length; index++) {
             if (array[index] == null) {
-                int from = index;
-                break;
-            }
-
-        for (int j = 0; j < array.length; j++) {
-            if (array[j] != null && j > from) {
-                        swap(array, from, j);
+                for (int j = index + 1; j < array.length; j++) {
+                    if (array[j] != null) {
+                        swap(array, index, j);
+                       break;
                     }
                 }
             }
@@ -29,15 +26,10 @@ public class Defragment {
     }
 
     public static void main(String[] args) {
-    //   String[] input = {"I", null, "wanna", null, "be", null, "compressed"};
-      //  String[] input = {null, "I", "wanna", null, "be", null, "compressed"};
-        String[] input = {null, null, null, "I", "wanna", "be", "compressed"};
-        String[] compressed = compress(input);
-        System.out.println();
-        for (int index = 0; index < compressed.length; index++) {
-            System.out.print(compressed[index] + " ");
-        }
+      //String[] input = {"I", null, "wanna", null, "be", null, "compressed"};
+        String[] input = {null, "I", "wanna", null, "be", null, "compressed"};
+       compress(input);
     }
 }
 
-*/
+
