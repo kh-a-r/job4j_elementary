@@ -11,5 +11,6 @@ public class FitnessTest {
         assertEquals(Fitness.calc(90, 100), 1);
         assertEquals(Fitness.calc(95, 90),  0);
         assertEquals(Fitness.calc(50,  90), 2);
+        assertEquals(Fitness.calc(90,  90), 1);
     }
 }
