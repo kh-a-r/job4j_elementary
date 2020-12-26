@@ -33,7 +33,6 @@ public class MatrixCheck {
 
     public static boolean isWin(char[][] board) {
         boolean result = false;
-        int index = 0;
         char[] diagonal = MatrixCheck.extractDiagonal(board);
         for (int i = 0; i < board.length; i++) {
             if (diagonal[i] == 'X') {
