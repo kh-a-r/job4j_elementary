@@ -3,11 +3,11 @@ package ru.job4j.oop;
 import static java.lang.Math.sqrt;
 
 public class Triangle {
-    private Point first;
-    private Point second;
-    private Point third;
+    private PointRefactor first;
+    private PointRefactor second;
+    private PointRefactor third;
 
-    public Triangle(Point ap, Point bp, Point cp) {
+    public Triangle(PointRefactor ap, PointRefactor bp, PointRefactor cp) {
         this.first = ap;
         this.second = bp;
         this.third = cp;
@@ -15,18 +15,12 @@ public class Triangle {
 
     public double period(double a, double b, double c) {
         double p = (a + b + c) / 2;
-        System.out.println(p);
         return p;
 
     }
 
     public boolean exist(double ab, double bc, double ac) {
-        boolean triangleExist = false;
-        if (ab + bc > ac && bc + ac > ab && ac + ab > bc) {
-            triangleExist = true;
-        }
-        System.out.println(triangleExist);
-            return  false;
+        return  ab + bc > ac && bc + ac > ab && ac + ab > bc;
     }
 
     public double area() {
@@ -38,17 +32,14 @@ public class Triangle {
         if (this.exist(ab, bc, ac)) {               // вот тут не понятно.
             rsl = sqrt(p * (p - ab) * (p - bc) * (p - ac));
          }
-        System.out.println(rsl);
         return rsl;
     }
 
     public static void main(String[] args) {
-        Point a = new Point(0, 0);
-        Point b = new Point(4, 0);
-        Point c = new Point(0, 4);
+        PointRefactor a = new PointRefactor(0, 0);
+        PointRefactor b = new PointRefactor(4, 0);
+        PointRefactor c = new PointRefactor(0, 4);
         Triangle triangle = new Triangle(a, b, c);
-
         System.out.println(triangle.area());
-
     }
 }
