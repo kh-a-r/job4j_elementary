@@ -37,7 +37,7 @@ public class TriangleTest {
         Triangle triangle = new Triangle(a, b, c);
         double rsl = triangle.area();
         double expected = 0;
-        assertThat(rsl, is(0.0));
+        assertThat(rsl, is(expected));
     }
 
 }
