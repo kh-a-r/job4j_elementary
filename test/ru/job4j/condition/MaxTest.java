@@ -9,19 +9,22 @@ public class MaxTest {
 
     @Test
     public void whenMax1To2Then2() {
-    int rslt = Max.max(1, 2);
+        Max max = new Max();
+        int rslt = max.check(1, 2);
         Assert.assertEquals(rslt, 2);
     }
 
     @Test
     public void whenMax2To1Then() {
-        int rslt = Max.max(2, 1);
+        Max max = new Max();
+        int rslt = max.check(1, 2, 0);
         Assert.assertEquals(rslt, 2);
     }
 
     @Test
     public void whenMax2To2Then() {
-        int rslt = Max.max(2, 2);
-        Assert.assertEquals(rslt, 2);
+        Max max = new Max();
+        int rslt = max.check(1, 2, 3, -1);
+        Assert.assertEquals(rslt, 3);
     }
 }
