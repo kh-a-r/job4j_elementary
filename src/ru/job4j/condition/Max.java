@@ -3,13 +3,7 @@ package ru.job4j.condition;
 public class Max {
 
     public int check(int first, int second) {
-        int rsl = 0;
-        if (first > second) {
-            rsl = first;
-        } else {
-          rsl = second;
-        }
-        return rsl;
+        return first > second ? first : second;
     }
 
     public int check(int first, int second, int third) {
