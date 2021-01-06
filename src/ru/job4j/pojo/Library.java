@@ -10,8 +10,6 @@ public class Library {
         for (int i = 0; i < libr.length; i++) {
             System.out.println(libr[i].getName());
         }
-        System.out.println();
-
         Book temp = libr[0];
         libr[0] = libr[3];
         libr[3] = temp;
