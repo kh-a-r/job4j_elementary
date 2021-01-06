@@ -23,7 +23,7 @@ public class Max {
 
     public static void main(String[] args) {
         Max num = new Max();
-        int  rsl = num.check(-1, 1, 0, 0);
+        int  rsl = num.check(-11, 31, 10, 20);
         System.out.println(rsl);
     }
 }
