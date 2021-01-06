@@ -2,23 +2,23 @@ package ru.job4j.loop;
 
 public class Cryptography {
     public static String code(String s) {
+        String  rsl = "";
         StringBuilder build = new StringBuilder(s);
         if (s.length() == 0) {
-            System.out.println("empty1");
+           rsl = "empty";
         } else if (s.length() <= 5) {
-            System.out.println(s);
+            rsl = s;
         } else {
-            for (int i = 1; i < s.length() - 5; i++) {
-             build.setCharAt(i, '#');
+            for (int i = 0; i < s.length() - 4; i++) {
+            build.setCharAt(i, '#'); // не могу перевести в String
             }
-            System.out.println(build);
         }
-       return s;
+       return rsl;
     }
 
     public static void main(String[] args) {
-        Cryptography.code("");
-        Cryptography.code("\"23\"");
-        Cryptography.code("\"45563646079999935616\"");
+        System.out.println(Cryptography.code(""));
     }
 }
+
+//   Cryptography.code("45563646079999935616");

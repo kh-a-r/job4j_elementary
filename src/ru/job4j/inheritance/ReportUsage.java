@@ -7,7 +7,7 @@ public class ReportUsage {
        //  HtmlReport report = new HtmlReport();
        // TextReport report = new TextReport();
        // String text = report.generate("Report's name", "Report's body");
-        String text = report.generate("name", "body");
+        String text = report.generate("nameJson", "bodyJson");
         System.out.println(text);
     }
 }

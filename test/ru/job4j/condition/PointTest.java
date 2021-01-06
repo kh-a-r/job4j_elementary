@@ -7,7 +7,6 @@ import static org.junit.Assert.assertEquals;
 
 public class PointTest {
 
-
     @Test
     public void whenA1B3C1D5Then4() {
         Point a = new Point(1, 1);
