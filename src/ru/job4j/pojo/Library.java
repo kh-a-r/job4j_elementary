@@ -18,6 +18,7 @@ public class Library {
         for (int i = 0; i < libr.length; i++) {
             if (libr[i].getName().equals("Clean code")) {
                 System.out.println(libr[i].getName());
+
             }
         }
     }
