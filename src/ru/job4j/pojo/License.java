@@ -41,7 +41,6 @@ public class License {
         this.created = created;
     }
 
-    @SuppressWarnings("checkstyle:OperatorWrap")
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -51,13 +50,13 @@ public class License {
             return false;
         }
         License license = (License) o;
-        return owner.equals(license.owner)
+        return Objects.equals(owner, license.owner)
                 &&
-                model.equals(license.model)
+                Objects.equals(model, license.model)
                 &&
-                code.equals(license.code)
+                Objects.equals(code, license.code)
                 &&
-                created.equals(license.created);
+                Objects.equals(created, license.created);
     }
 
     @Override
