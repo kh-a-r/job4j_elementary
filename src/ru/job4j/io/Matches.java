@@ -18,7 +18,6 @@ public class Matches {
                 System.out.println("Осталось спичек: " + countOf);
             } else {
                 System.out.println(player + ", Вы ввели неверное число.");
-                turn = !(!turn);
             }
 
         }
