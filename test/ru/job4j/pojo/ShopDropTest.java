@@ -12,7 +12,7 @@ public class ShopDropTest {
     public void whenDropFirst() {
         Product[] products = new Product[2];
         products[0] = new Product("Oil", 4);
-        products[0] = new Product("Salt", 12);
+        products[1] = new Product("Salt", 12);
         Product[] rsl = ShopDrop.leftShift(products, 0);
         assertThat(rsl[0].getName(), is("Salt"));
         assertThat(rsl[1], is(nullValue()));
