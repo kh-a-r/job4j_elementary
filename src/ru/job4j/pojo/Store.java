@@ -10,7 +10,7 @@ public class Store {
         prods[1] = egg;
         prods[2] = milk;
         for (int i = 0; i < prods.length; i++) {
-            //Product pr = prods[i];
+            Product pr = prods[i];
             //System.out.println(prods[i].getName() + " - " + prods[i].getCount());
         }
         Product oil = new Product("Oil", 3);

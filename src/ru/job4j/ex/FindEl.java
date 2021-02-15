@@ -6,6 +6,7 @@ public class FindEl {
         for (int i = 0; i < value.length; i++) {
             if (value[i].equals(key)) {
                rsl = i;
+               break;
             }
         }
 
@@ -13,6 +14,15 @@ public class FindEl {
             throw new ElementNotFoundException("Element not found");
         }
         return rsl;
+    }
+
+    public static boolean sent(String value, String[] abuses) throws ElementAbuseException {
+        for (int i = 0; i < abuses.length; i++) {
+            if (abuses[i].equals(value)) {
+                throw new ElementAbuseException("Element is forbidden");
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {

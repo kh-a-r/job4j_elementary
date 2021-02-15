@@ -21,7 +21,6 @@ public class DropArray {
             }
             System.out.println(namesWithoutNull.length);
 
-
         names = new String[]{"Petr", null, "Ivan", "Stepan", "Fedor"};
         System.arraycopy(names, 2, names, 1, 3);
         System.out.println(Arrays.toString(names));
