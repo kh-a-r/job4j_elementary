@@ -28,4 +28,12 @@ public class OrderConvertTest {
         assertThat(map.get("3sfe"), is(new Order("3sfe", "Dress1"))); //перезаписалось значение
     }
 
+    @Test
+    public void whenDublicateOrder1() {
+        List<Order> orders = new ArrayList<>();
+        orders.add(new Order("3sfe", "Dress"));
+        orders.add(new Order("3sfe", "Dress"));
+        HashMap<String, Order> map = OrderConvert.process(orders);
+        assertThat(map.size(), is(1));
+    }
 }
