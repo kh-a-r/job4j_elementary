@@ -89,6 +89,7 @@ public class BankServiceTest {
         bank.addAccount(user.getPassport(), new Account("5546", 100D));
         bank.addAccount(user.getPassport(), new Account("113", 50D));
         bank.transferMoney(user.getPassport(), "5546", user.getPassport(), "113", 101D);
-        assertThat(bank.findByRequisite(user.getPassport(), "113").getBalance(), is(50D));
+        //assertThat(bank.findByRequisite(user.getPassport(), "113").getBalance(), is(50D));
+        assertThat(bank.transferMoney(user.getPassport(), "5546", user.getPassport(), "113", 101D), is(false));
     }
 }
