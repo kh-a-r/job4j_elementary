@@ -15,7 +15,6 @@ public class BankServiceTest {
             assertThat(bank.findByPassport("3434"), is(user));
         }
 
-
     @Test
     public void addAccount() {
         User user = new User("3434", "Petr Arsentev");
@@ -26,10 +25,70 @@ public class BankServiceTest {
     }
 
     @Test
+    public void addDublAccount() {
+        User user = new User("3434", "Petr Arsentev");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addAccount(user.getPassport(), new Account("5546", 150D));
+        bank.addAccount(user.getPassport(), new Account("5546", 100D));
+        assertThat(bank.findByRequisite("3434", "5546").getBalance(), is(150D));
+    }
+
+    @Test
+    public void whenEnterInvalidPassport() {
+        User user = new User("3434", "Petr Arsentev");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addAccount(user.getPassport(), new Account("5546", 150D));
+        assertNull(bank.findByRequisite("34", "5546"));
+    }
+
+    @Test
+    public void whenEnterInvalidRequisite() {
+        User user = new User("3434", "Petr Arsentev");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addAccount(user.getPassport(), new Account("5546", 150D));
+        assertNull(bank.findByRequisite("3434", "55461"));
+    }
+
+    @Test
     public void findByPassport() {
+        User user = new User("123", "Bob Marley");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addAccount("123", new Account("2222", 100D));
+        assertThat(bank.findByPassport(user.getPassport()).getPassport(), is("123"));
     }
 
     @Test
     public void findByRequisite() {
+        User user = new User("123", "Bob Marley");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addAccount("123", new Account("2222", 100D));
+        assertThat(bank.findByRequisite(user.getPassport(), "2222").getRequisite(), is("2222"));
+    }
+
+    @Test
+    public void transferMoney() {
+        User user = new User("3434", "Petr Arsentev");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addAccount(user.getPassport(), new Account("5546", 150D));
+        bank.addAccount(user.getPassport(), new Account("113", 50D));
+        bank.transferMoney(user.getPassport(), "5546", user.getPassport(), "113", 150D);
+        assertThat(bank.findByRequisite(user.getPassport(), "113").getBalance(), is(200D));
+    }
+
+    @Test
+    public void whenBalanceLessForTransferMoney() {
+        User user = new User("3434", "Petr Arsentev");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addAccount(user.getPassport(), new Account("5546", 100D));
+        bank.addAccount(user.getPassport(), new Account("113", 50D));
+        bank.transferMoney(user.getPassport(), "5546", user.getPassport(), "113", 101D);
+        assertThat(bank.findByRequisite(user.getPassport(), "113").getBalance(), is(50D));
     }
 }

@@ -9,9 +9,7 @@ public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        if (!users.containsKey(user)) {
-            users.put(user, new ArrayList<Account>());
-        }
+        users.putIfAbsent(user, new ArrayList<Account>());
     }
 
     public void addAccount(String passport, Account account) {
@@ -28,8 +26,9 @@ public class BankService {
         User rsl = null;
         for (User element : users.keySet()
         ) {
-            if (users.keySet().contains(passport)) {
+            if (element.getPassport().equals(passport)) {
                 rsl = element;
+                break;
             }
         }
         return rsl;
@@ -42,29 +41,27 @@ public class BankService {
             List<Account> userList = users.get(user);
             for (Account element : userList
             ) {
-                if (userList.equals(requisite)) {
+                if (element.getRequisite().equals(requisite)) {
                     account = element;
+                    break;
                 }
             }
         }
         return account;
     }
 
-
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
-
         boolean rsl = false;
+        Account scrAccount = findByRequisite(srcPassport, srcRequisite);
+        Account destAccount = findByRequisite(destPassport, destRequisite);
+        if (scrAccount != null && scrAccount.getBalance() >= amount && destAccount != null
+                && scrAccount != destAccount) {
+            scrAccount.setBalance(scrAccount.getBalance() - amount);
+            destAccount.setBalance(destAccount.getBalance() + amount);
+            rsl = true;
+        }
         return rsl;
     }
-//Метод для перечисления денег с одного счёта на другой счёт.
-//Если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят), то метод должен вернуть false.
-//
-//Посмотрите на методы Map.putIfAbsent и List.contains, как их можно применить в этом задании.
-//
-//Метод putIfAbsent позволяет проверить, если ли такой ключ в карте или нет и если его нет, то произвести вставку данных.
-//Этот метод позволяет уменьшить количество кода.
-//Метод List.indexOf позволяет найти индекс элемента по значению. Проверка элементов в этом методе происходит по методу equals.
-  //  Обратите внимание, что в моделях User и Account используется только одно поле passport и requisite для
-//    сравнения объектов. Это позволяет использовать эти методы, без информации о всех полях.
 }
+
