@@ -35,23 +35,19 @@ public class NonUniqueString {
      * @return возвращает false, если хоть один символ отсутствует , true - если карту пустая
      */
     public static boolean eq(String left, String right) {
-        boolean rsl = true;
         Map<Character, Integer> list = map(left);
         for (int i = 0; i < right.length(); i++) {
             if (!list.containsKey(right.charAt(i))) {
-                rsl = false;
-                break;
+                return false;
             }
             if (list.containsKey(right.charAt(i)) && list.get(right.charAt(i)) == 1) {
                 list.remove(right.charAt(i));
             } else {
                 int v = list.get(right.charAt(i));
-                v--;
+               v--;
+                list.put(right.charAt(i), v);
             }
         }
-        if (list.isEmpty()) {
-            rsl = true;
-        }
-        return rsl;
+        return list.isEmpty();
     }
 }

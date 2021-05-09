@@ -9,7 +9,7 @@ public class NonUniqueStringTest {
 
     @Test
     public void whenEq() {
-        assertThat(NonUniqueString.eq("Hello", "Hlloe"), is(true));
+        assertThat(NonUniqueString.eq("Hellol", "Hlloel"), is(true));
     }
 
     @Test
