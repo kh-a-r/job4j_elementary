@@ -19,7 +19,7 @@ public class CollectClassTest {
                 new Student(80, "St4"),
                 new Student(40, "St1")
         );
-        Predicate<Student> predicate = student -> student.getScore() > 70;
+        Predicate<Student> predicate = student -> student.getScore() >= 70;
         CollectClass collectClass = new CollectClass();
         List<Student> result = collectClass.collect(students, predicate);
         List<Student> expected = List.of(
@@ -37,7 +37,7 @@ public class CollectClassTest {
                 new Student(80, "St4"),
                 new Student(40, "St1")
         );
-        Predicate<Student> predicate = student -> student.getScore() > 50 && student.getScore() <= 70;
+        Predicate<Student> predicate = student -> student.getScore() >= 50 && student.getScore() < 70;
         CollectClass collectClass = new CollectClass();
         List<Student> result = collectClass.collect(students, predicate);
         List<Student> expected = List.of(
@@ -55,7 +55,7 @@ public class CollectClassTest {
                 new Student(80, "St4"),
                 new Student(40, "St1")
         );
-        Predicate<Student> predicate = student -> student.getScore() <= 50;
+        Predicate<Student> predicate = student -> student.getScore() < 50;
         CollectClass collectClass = new CollectClass();
         List<Student> result = collectClass.collect(students, predicate);
         List<Student> expected = List.of(
