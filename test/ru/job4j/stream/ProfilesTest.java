@@ -29,4 +29,16 @@ public class ProfilesTest {
         );
         assertThat(result, is(expected));
     }
+
+    @Test
+    public  void cutClone() {
+        List<Address> addresses = Arrays.asList(
+                new Address("Ufa", "Lenina", 1, 1),
+                new Address("Ufa", "Lenina", 1, 1),
+                new Address("Ufa", "Lenina", 1, 1)
+        );
+        Profiles profiles = new Profiles();
+        List<Address> result = profiles.cutClone(addresses);
+        assertThat(result.size(), is(1));
+    }
 }

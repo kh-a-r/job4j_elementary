@@ -1,8 +1,6 @@
 package ru.job4j.stream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Profiles {
@@ -12,4 +10,10 @@ public class Profiles {
                 .map(profile -> profile.getAddress())
                 .collect(Collectors.toList());
     }
+
+    public List<Address> cutClone(List<Address> addresses) {
+                    return addresses.stream()
+                    .sorted(Comparator.naturalOrder())
+                    .distinct().collect(Collectors.toList());
+        }
 }
