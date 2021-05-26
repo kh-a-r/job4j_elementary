@@ -1,6 +1,5 @@
 package ru.job4j.stream;
 
-import java.util.Comparator;
 import java.util.Objects;
 
 public class Address {
@@ -24,8 +23,7 @@ public class Address {
         this.city = city;
     }
 
-        @SuppressWarnings("checkstyle:OperatorWrap")
-        @Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -34,10 +32,10 @@ public class Address {
             return false;
         }
         Address address = (Address) o;
-        return home == address.home &&
-                apartment == address.apartment &&
-                Objects.equals(city, address.city) &&
-                Objects.equals(street, address.street);
+        return home == address.home
+                && apartment == address.apartment
+                && Objects.equals(city, address.city)
+                && Objects.equals(street, address.street);
     }
 
     @Override
@@ -45,15 +43,14 @@ public class Address {
         return Objects.hash(city, street, home, apartment);
     }
 
-
     @Override
     public String toString() {
-        return "Address{" +
-                "city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                ", home=" + home +
-                ", apartment=" + apartment +
-                '}';
+        return "Address{"
+                + "city='" + city + '\''
+                + ", street='" + street + '\''
+                + ", home=" + home
+                + ", apartment=" + apartment
+                + '}';
     }
 }
 
