@@ -3,7 +3,7 @@ package ru.job4j.stream;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class Address implements Comparable<Address> {
+public class Address {
     private String city;
     private String street;
     private int home;
@@ -24,12 +24,8 @@ public class Address implements Comparable<Address> {
         this.city = city;
     }
 
-    @Override
-    public int compareTo(Address o) {
-        return city.compareTo(o.city);
-    }
-
-    @Override
+        @SuppressWarnings("checkstyle:OperatorWrap")
+        @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -38,12 +34,9 @@ public class Address implements Comparable<Address> {
             return false;
         }
         Address address = (Address) o;
-        return home == address.home
-                &&
-                apartment == address.apartment
-                &&
-                Objects.equals(city, address.city)
-                &&
+        return home == address.home &&
+                apartment == address.apartment &&
+                Objects.equals(city, address.city) &&
                 Objects.equals(street, address.street);
     }
 
@@ -52,20 +45,15 @@ public class Address implements Comparable<Address> {
         return Objects.hash(city, street, home, apartment);
     }
 
+
     @Override
     public String toString() {
-        return "Address{"
-                +
-                "city='"
-                + city + '\''
-                +
-                ", street='"
-                + street + '\''
-                +
-                ", home="
-                + home + ", apartment="
-                + apartment
-                +
+        return "Address{" +
+                "city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", home=" + home +
+                ", apartment=" + apartment +
                 '}';
     }
 }
+

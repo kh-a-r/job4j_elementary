@@ -32,13 +32,33 @@ public class ProfilesTest {
 
     @Test
     public  void cutClone() {
-        List<Address> addresses = Arrays.asList(
-                new Address("Ufa", "Lenina", 1, 1),
-                new Address("Ufa", "Lenina", 1, 1),
-                new Address("Ufa", "Lenina", 1, 1)
+        Address address = new Address("Ufa", "Lenina", 1, 1);
+        Address address1 = new Address("Ufa", "Lenina", 1, 1);
+        List<Profile> profileList = Arrays.asList(
+                new Profile(address),
+                new Profile(address1)
         );
         Profiles profiles = new Profiles();
-        List<Address> result = profiles.cutClone(addresses);
+        List<Address> result = profiles.collect(profileList);
         assertThat(result.size(), is(1));
+    }
+
+    @Test
+    public  void whenSortedAndClone() {
+        Address address = new Address("Ufa", "Lenina", 1, 1);
+        Address address1 = new Address("Ufa", "Lenina", 1, 1);
+        Address address2 = new Address("Orel", "Lenina", 1, 1);
+        List<Profile> profileList = Arrays.asList(
+                new Profile(address),
+                new Profile(address1),
+                new Profile(address2)
+        );
+        Profiles profiles = new Profiles();
+        List<Address> result = profiles.collect(profileList);
+        List<Address> exp = Arrays.asList(
+                new Address("Orel", "Lenina", 1, 1),
+                new Address("Ufa", "Lenina", 1, 1)
+        );
+        assertThat(result, is(exp));
     }
 }
