@@ -2,8 +2,12 @@ package ru.job4j.stream;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -64,5 +68,21 @@ public class CollectClassTest {
                 new Student(40, "St1")
         );
         assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whenListTOMap() {
+     List<Student> students = List.of(
+                new Student(10, "Иванов"),
+                new Student(19, "Иванов"),
+                new Student(19, "Petrov")
+        );
+        CollectClass collectClass = new CollectClass();
+        Map<String, List<Student>> rls = collectClass.listToMap(students);
+        Map<String, List<Student>> exp = new HashMap<>();
+        exp.put("Petrov", List.of(new Student(19, "Petrov")));
+        exp.put("Иванов", List.of(new Student(10, "Иванов"),
+                new Student(19, "Иванов")));
+        assertThat(rls, is(exp));
     }
 }
