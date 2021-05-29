@@ -78,11 +78,10 @@ public class CollectClassTest {
                 new Student(19, "Petrov")
         );
         CollectClass collectClass = new CollectClass();
-        Map<String, List<Student>> rls = collectClass.listToMap(students);
-        Map<String, List<Student>> exp = new HashMap<>();
-        exp.put("Petrov", List.of(new Student(19, "Petrov")));
-        exp.put("Иванов", List.of(new Student(10, "Иванов"),
-                new Student(19, "Иванов")));
+        Map<String, Student> rls = collectClass.convertToMap(students);
+        Map<String, Student> exp = new HashMap<>();
+        exp.put("Petrov", new Student(19, "Petrov"));
+        exp.put("Иванов", new Student(10, "Иванов"));
         assertThat(rls, is(exp));
     }
 }
