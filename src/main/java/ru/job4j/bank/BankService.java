@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
         * Класс описывает работу банковского сервиса
@@ -47,15 +48,11 @@ public class BankService {
      * @return возвращает клиента по заданным паспортным данным
      */
     public User findByPassport(String passport) {
-        User rsl = null;
-        for (User element : users.keySet()
-        ) {
-            if (element.getPassport().equals(passport)) {
-                rsl = element;
-                break;
-            }
-        }
-        return rsl;
+        return users.keySet()
+                .stream()
+                .filter(user -> user.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -67,19 +64,15 @@ public class BankService {
      * @return возвращает банковский счет
      */
     public Account findByRequisite(String passport, String requisite) {
-        Account account = null;
         User user = findByPassport(passport);
         if (user != null) {
-            List<Account> userList = users.get(user);
-            for (Account element : userList
-            ) {
-                if (element.getRequisite().equals(requisite)) {
-                    account = element;
-                    break;
-                }
-            }
+            return users.get(user)
+                    .stream()
+                    .filter(account -> account.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
-        return account;
+        return null;
     }
 
     /**
