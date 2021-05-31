@@ -14,15 +14,4 @@ return
                 .collect(Collectors.toList()
         );
     }
-
-    public static void main(String[] args) {
-        Integer[][] array = new Integer[][] {
-                {1, 2, 3},
-                {4, 5, 6},
-                {6, 7, 8}
-        };
-        ConvertMatrix convertMatrix = new ConvertMatrix();
-        List<Integer> list = convertMatrix.matrixToList(array);
-        System.out.println(list);
-    }
 }
