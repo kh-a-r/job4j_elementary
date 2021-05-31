@@ -10,7 +10,7 @@ public class ConvertMatrix {
     public List<Integer> matrixToList(Integer[][] matrix) {
 return
     Stream.of(matrix)
-            .flatMap(i -> Arrays.stream(i))
+            .flatMap(Arrays::stream)
                 .collect(Collectors.toList()
         );
     }
