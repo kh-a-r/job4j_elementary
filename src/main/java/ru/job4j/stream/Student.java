@@ -12,6 +12,11 @@ public class Student {
         this.surname = surname;
     }
 
+    public Student(String surname, int score) {
+        this.surname = surname;
+        this.score = score;
+    }
+
     public int getScore() {
         return score;
     }
@@ -40,9 +45,9 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "score=" + score +
-                ", surname='" + surname + '\'' +
-                '}';
+        return "Student{"
+                + "score=" + score
+                + ", surname='" + surname + '\''
+                + '}';
     }
 }
