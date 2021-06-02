@@ -16,28 +16,28 @@ public class Home {
                 + '}';
     }
 
-    public static class Builder {
+     static class Builder {
         private String city;
         private String street;
         private int number;
         private int apartment;
 
-        public Builder buildCity(String city) {
+         Builder buildCity(String city) {
             this.city = city;
             return this;
         }
 
-        public Builder buildStreet(String street) {
+         Builder buildStreet(String street) {
             this.street = street;
             return this;
         }
 
-        public Builder buildNumber(int number) {
+         Builder buildNumber(int number) {
             this.number = number;
             return this;
         }
 
-        public Builder buildApartment(int apartment) {
+         Builder buildApartment(int apartment) {
             this.apartment = apartment;
             return this;
         }
