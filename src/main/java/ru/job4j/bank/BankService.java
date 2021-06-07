@@ -45,15 +45,10 @@ public class BankService {
      * @return возвращает клиента по заданным паспортным данным
      */
     public Optional<User> findByPassport(String passport) {
-        Optional<User> rsl = Optional.empty();
-        rsl = users.keySet()
+        return users.keySet()
                 .stream()
                 .filter(user -> user.getPassport().equals(passport))
                 .findFirst();
-        if (rsl.isPresent()) {
-            return rsl;
-        }
-        return rsl;
     }
 
     /**
@@ -65,7 +60,6 @@ public class BankService {
      * @return возвращает банковский счет
      */
     public Optional<Account> findByRequisite(String passport, String requisite) {
-        Optional<Account> acc = Optional.empty();
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
             return users.get(user.get())
@@ -73,7 +67,7 @@ public class BankService {
                     .filter(account -> account.getRequisite().equals(requisite))
                     .findFirst();
         }
-        return acc;
+        return Optional.empty();
     }
 
     /**
@@ -93,7 +87,7 @@ public class BankService {
         boolean rsl = false;
         Optional<Account> scrAccount = findByRequisite(srcPassport, srcRequisite);
         Optional<Account> destAccount = findByRequisite(destPassport, destRequisite);
-        if (scrAccount != null && scrAccount.get().getBalance() >= amount && destAccount != null
+        if (scrAccount.isPresent() && scrAccount.get().getBalance() >= amount && destAccount.isPresent()
                 ) {
             scrAccount.get().setBalance(scrAccount.get().getBalance() - amount);
             destAccount.get().setBalance(destAccount.get().getBalance() + amount);
